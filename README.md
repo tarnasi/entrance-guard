@@ -1,6 +1,6 @@
 # Make Enterence
 
-### Packages
+## Packages
 
 ```toml
 "bcrypt>=5.0.0",
@@ -9,11 +9,24 @@
 "mysql-connector-python>=9.7.0",
 "python-jose>=3.5.0"
 ```
+## Install UV package manager
 
-### Enviroment
+MAC / Linux
+
+```sh
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Windows
+```sh
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+*_Consider restart your terminal_*
+
+## Enviroment
 
 Install Packages:
-
 
 ```sh
 # Optional: add venv with command below
@@ -26,7 +39,7 @@ source .venv/bin/activate  # MAC / Linux
 uv sync
 ```
 
-### Add RSA files
+## Add RSA files
 
 Should create two private and public pem in storage/rsa folder
 
@@ -38,8 +51,7 @@ openssl genrsa -out storage/rsa/private.pem 2048
 openssl rsa -in storage/rsa/private.pem -pubout -out storage/rsa/public.pem
 ```
 
-
-### For your information
+## For your information
 
 **<u>You most use this in jwt encoder and decoder</u>**
 
@@ -90,4 +102,10 @@ openssl rsa -in storage/rsa/private.pem -pubout -out storage/rsa/public.pem
   </tbody>
 </table>
 
+## Run Project
 
+fro development
+
+```sh
+uv run fastapi dev
+```

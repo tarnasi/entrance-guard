@@ -1,4 +1,4 @@
-from main import get_settings
+from app.config import get_settings
 import mysql.connector
 
 settings = get_settings()

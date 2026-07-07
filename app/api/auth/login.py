@@ -1,4 +1,3 @@
-from email.policy import HTTP
 from fastapi import APIRouter, HTTPException
 import bcrypt
 from app.utils.rsa import decrypt_password
