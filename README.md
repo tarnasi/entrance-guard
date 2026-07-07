@@ -40,6 +40,9 @@ openssl rsa -in storage/rsa/private.pem -pubout -out storage/rsa/public.pem
 
 
 ### For your information
+
+**<u>You most use this in jwt encoder and decoder</u>**
+
 <table>
   <thead>
     <tr>
@@ -86,3 +89,5 @@ openssl rsa -in storage/rsa/private.pem -pubout -out storage/rsa/public.pem
     </tr>
   </tbody>
 </table>
+
+

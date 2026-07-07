@@ -2,6 +2,8 @@ from functools import lru_cache
 from fastapi import FastAPI
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+from app.api.auth import login, logout, profile, register
+
 
 class ApplicationSetting(BaseSettings):
     
@@ -26,3 +28,10 @@ def get_settings():
 app = FastAPI(
     title="Base Service Authentication and Authorization"
 )
+
+app.include_router(register.router, prefix="/api/auth")
+app.include_router(login.router, prefix="/api/auth")
+app.include_router(profile.router, prefix="/api/auth")
+app.include_router(logout.router, prefix="/api/auth")
+
+
