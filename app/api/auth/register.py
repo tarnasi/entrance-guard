@@ -9,8 +9,8 @@ router = APIRouter()
 async def register(data: dict):
     cursor = db.cursor(dictionary=True)
     hashed = bcrypt.hashpw(
-        data['password'].encode(),
-        bcrypt.gensalt()
+        data["password"].encode(),
+        bcrypt.gensalt(),
     )
     
     cursor.execute(

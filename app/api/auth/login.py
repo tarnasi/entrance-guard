@@ -1,6 +1,5 @@
 from fastapi import APIRouter, HTTPException
 import bcrypt
-from app.utils.rsa import decrypt_password
 from app.utils.jwt import sign_token
 from app.db.mysql import db
 
@@ -16,9 +15,7 @@ def login(data: dict):
     if not user:
         raise HTTPException(status_code=401, detail="Invalid credentials")
     
-    decrypted = decrypt_password(data["password"])
-    
-    if not bcrypt.checkpw(decrypted.encode(), user["password"].encode()):
+    if not bcrypt.checkpw(data["password"].encode(), user["password"].encode()):
         raise HTTPException(status_code=401, detail="Invalid Credentials")
 
     return {

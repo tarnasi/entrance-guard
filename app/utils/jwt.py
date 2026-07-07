@@ -15,7 +15,7 @@ def sign_token(user):
     return jwt.encode(
         payload,
         settings.JWT_SECRET,
-        algorithm=['RSA256']
+        algorithm="HS256",
     )
 
 
@@ -23,5 +23,5 @@ def verify_token(token):
     return jwt.decode(
         token,
         settings.JWT_SECRET,
-        algorithms=["RSA256"]
+        algorithms=["HS256"],
     )
